@@ -1,0 +1,171 @@
+/* Знулення базових стилів та налаштування box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f6f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Обмежувальний контейнер для центрування контенту */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка сайту */
+.header {
+    background-color: #1a252f;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #3498db;
+}
+
+/* Головний контент */
+.main-content {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #3498db;
+}
+
+/* Адаптивна сітка новин (Flexbox) */
+.news-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Картка новини */
+.news-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    /* На великих екранах кожна картка займає приблизно 1/3 ширини з урахуванням gap */
+    flex: 1 1 calc(33.333% - 20px); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Контейнер для фото */
+.news-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Зображення масштабується без спотворень */
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.05);
+}
+
+/* Текстова частина картки */
+.news-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-date {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.news-title {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.news-text {
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1; /* Штовхає контент, щоб картки були однакової висоти */
+}
+
+/* Підвал сайту */
+.footer {
+    background-color: #1a252f;
+    color: #95a5a6;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+/* Адаптивність (Адаптивні медіа-запити) */
+
+/* Для планшетів (до 2 карток в ряд) */
+@media (max-width: 992px) {
+    .news-card {
+        flex: 1 1 calc(50% - 15px);
+    }
+}
+
+/* Для мобільних телефонів (1 картка в ряд) */
+@media (max-width: 600px) {
+    .news-grid {
+        flex-direction: column;
+    }
+    
+    .news-card {
+        flex: 1 1 100%;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+}
