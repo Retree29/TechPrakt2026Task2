@@ -18,17 +18,17 @@ body {
 /* Обмежувальний контейнер для центрування контенту */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1199px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 19px;
 }
 
 /* Шапка сайту */
 .header {
     background-color: #1a252f;
     color: #fff;
-    padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 19px 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
 .logo {
